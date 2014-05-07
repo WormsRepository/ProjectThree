@@ -1,6 +1,6 @@
 package statement;
 
-import javax.swing.text.html.parser.Entity;
+import type.Entity;
 import be.kuleuven.cs.som.annotate.*;
 
 public abstract class S {

@@ -1,5 +1,5 @@
 package expression;
 
-public class E {
+public abstract class E {
 	// TODO implementing class
 }

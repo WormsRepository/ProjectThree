@@ -4,7 +4,7 @@ package statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.html.parser.Entity;
+import type.Entity;
 
 import be.kuleuven.cs.som.annotate.Basic;
 

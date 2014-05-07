@@ -1,5 +1,5 @@
 package type;
 
-public class T {
-	// TODO implementing class
+public abstract class T {
+	//TODO implement class
 }

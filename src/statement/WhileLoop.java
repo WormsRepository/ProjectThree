@@ -1,7 +1,7 @@
 package statement;
 
-import javax.swing.text.html.parser.Entity;
-
+import be.kuleuven.cs.som.annotate.*;
+import type.Entity;
 import worms.model.Worm;
 import expression.E;
 
@@ -14,7 +14,7 @@ public class WhileLoop extends S{
 	}
 	
 	
-	
+	@Basic
 	public E getCondition(){
 		return this.condition;
 	}
@@ -22,7 +22,7 @@ public class WhileLoop extends S{
 	final E condition;
 	
 	
-	
+	@Basic
 	public S getBody(){
 		return this.body;
 	}
@@ -40,11 +40,11 @@ public class WhileLoop extends S{
 		}
 		else{
 			System.out.println("Class: WhileLoop: execution error");
-			if(Worm.class.isInstance(entity)){
-				if(entity.getProgram() != null){
-					(Worm) entity.getProgram().setExecuting(false);
-				}
-				// fix this
+			if(Worm.class.isInstance(entity.getObject())){
+				Worm worm = (Worm) entity.getObject();
+				if(worm.hasProgram())
+					worm.getProgram().setExecuting(false);
+				// TODO fix this
 			}
 		}
 	}

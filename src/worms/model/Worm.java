@@ -762,7 +762,17 @@ public class Worm {
 	private Team team = null;
 	
 	
-	//TODO hasProgram
+	
+	
+	/**
+	 * Check whether this worm has a program to which it is attached.
+	 * 
+	 * @return	True if and only if this worm has a program attached to it.
+	 * 			| result == (getProgram() != null)
+	 */
+	public boolean hasProgram(){
+		return getProgram() != null;
+	}
 	
 	/**
 	 * Return the program to which this worm is attached.
