@@ -63,7 +63,7 @@ public class Worm {
 	 * @effect	The name of this new worm is set to the given name.
 	 * 			| this.setName(name)
 	 */
-	public Worm(double x, double y, double direction, double radius,String name) 
+	public Worm(double x, double y, double direction, double radius, String name) 
 			throws IllegalRadiusException, IllegalNameException
 	{
 		wormPosition = new WormPosition(this,x,y);
@@ -72,6 +72,8 @@ public class Worm {
 		setCurrentActionPoints(getMaxActionPoints());
 		setCurrentHitPoints(getMaxHitPoints());
 		setName(name);
+		program = null;
+		//TODO program in constructor
 	}
 
 	/**
@@ -758,7 +760,24 @@ public class Worm {
 	 * Variable referencing the team to which this worm is attached.
 	 */
 	private Team team = null;
+	
+	
+	//TODO hasProgram
+	
+	/**
+	 * Return the program to which this worm is attached.
+	 */
+	@Basic @Raw
+	public Program getProgram(){
+		return this.program;
+	}
+	
+	/**
+	 * Variable referencing the program to which this worm is attached.
+	 */
+	private final Program program;
 
+	
 	
 	
 	/**
