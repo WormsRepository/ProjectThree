@@ -22,15 +22,13 @@ import be.kuleuven.cs.som.annotate.Raw;
  * 			| canHaveAsRadius(getRadius())
  * @invar	The name of each worm must be a valid name for any worm.
  * 			| canHaveAsName(getName())
- * @invar	The position of each worm must lie fully within the map.
- * 			| getPosition().inMap(getPosition().getX(),getPosition().getY())
  * @invar	The World to which the worm is attached must be a valid world
  * 			| hasProperWorld()
  * 
  * @version 1.0
  * @author 	Laurens Loots, Pieter Vos
  */
-public class Worm {
+public class Worm extends WormPosition{
 
 
 	/**
@@ -66,7 +64,7 @@ public class Worm {
 	public Worm(double x, double y, double direction, double radius, String name) 
 			throws IllegalRadiusException, IllegalNameException
 	{
-		wormPosition = new WormPosition(this,x,y);
+		super(x, y);
 		setDirection(direction);
 		setRadius(radius);
 		setCurrentActionPoints(getMaxActionPoints());
@@ -137,21 +135,6 @@ public class Worm {
 	 */
 	private World world = null;
 	
-	
-	
-	/**
-	 * Returns the reference to the position of this worm.
-	 */
-	@Basic @Raw
-	public WormPosition getWormPosition()
-	{
-		return this.wormPosition;
-	}
-	
-	/**
-	 * Variable referencing the position of the worm.
-	 */
-	private final WormPosition wormPosition;
 
 	
 	
@@ -224,10 +207,10 @@ public class Worm {
 	 * 			| if(this.getWorld() == null)
 	 * 			| 	then result == radius >= getMinimalRadius()
 	 * 			| else
-	 * 			|	then result == this.getPosition().getX()>radius && 
-	 * 			|		this.getPosition().getX()<this.getWorld().getWidth() - radius &&
-	 * 			|			this.getPosition().getY()>radius && 
-	 * 			|				this.getPosition().getY()<this.getWorld().getHeight() - radius 
+	 * 			|	then result == this.getX()>radius && 
+	 * 			|		this.getX()<this.getWorld().getWidth() - radius &&
+	 * 			|			this.getY()>radius && 
+	 * 			|				this.getY()<this.getWorld().getHeight() - radius 
 	 * 			|					&& radius >= getMinimalRadius();
 	 */
 	@Raw
@@ -235,8 +218,8 @@ public class Worm {
 	{
 		if(this.getWorld() == null)
 			return radius >= getMinimalRadius();
-		double x = this.getWormPosition().getX();
-		double y = this.getWormPosition().getY();
+		double x = this.getX();
+		double y = this.getY();
 		return x>radius && x<this.getWorld().getWidth() - radius &&
 		y>radius && y<this.getWorld().getHeight() - radius 
 		&& radius >= getMinimalRadius();

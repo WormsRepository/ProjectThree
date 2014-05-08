@@ -37,12 +37,12 @@ public class Facade implements IFacade {
 
 	@Override
 	public boolean canFall(Worm worm) {
-		return worm.getWormPosition().canFall();
+		return worm.canFall();
 	}
 
 	@Override
 	public boolean canMove(Worm worm) {
-		return worm.getWormPosition().canMove();
+		return worm.canMove();
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class Facade implements IFacade {
 	public void fall(Worm worm) 
 			throws ModelException{
 		try{
-			worm.getWormPosition().fall();
+			worm.fall();
 		}
 		catch(IllegalPositionException x){
 			throw new ModelException("IllegalPositionException");
@@ -121,7 +121,7 @@ public class Facade implements IFacade {
 	public double[] getJumpStep(Worm worm, double t) 
 			throws ModelException{
 		try{
-			return worm.getWormPosition().getJumpStep(t);
+			return worm.getJumpStep(t);
 		}
 		catch(IllegalActionPointsException x){
 			throw new ModelException("IllegalActionPointsException");
@@ -148,7 +148,7 @@ public class Facade implements IFacade {
 	public double getJumpTime(Worm worm, double timeStep) 
 			throws ModelException{
 		try{
-			return worm.getWormPosition().getJumpTime();
+			return worm.getJumpTime();
 		}
 		catch(IllegalActionPointsException x){
 			throw new ModelException("IllegalActionPointsException");
@@ -237,7 +237,7 @@ public class Facade implements IFacade {
 
 	@Override
 	public double getX(Worm worm) {
-		return worm.getWormPosition().getX();
+		return worm.getX();
 	}
 
 	@Override
@@ -252,7 +252,7 @@ public class Facade implements IFacade {
 
 	@Override
 	public double getY(Worm worm) {
-		return worm.getWormPosition().getY();
+		return worm.getY();
 	}
 
 	@Override
@@ -302,7 +302,7 @@ public class Facade implements IFacade {
 	public void jump(Worm worm, double timeStep) 
 			throws ModelException{
 		try{
-			worm.getWormPosition().jump();
+			worm.jump();
 		}
 		catch(IllegalActionPointsException x){
 			throw new ModelException("IllegalActionPointsException");
@@ -319,7 +319,7 @@ public class Facade implements IFacade {
 	public void move(Worm worm) {
 		try
 		{
-			worm.getWormPosition().move();
+			worm.move();
 		}
 		catch(IllegalDirectionException x){
 			throw new ModelException("IllegalDirectionException");

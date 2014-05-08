@@ -63,8 +63,8 @@ public class WormTest {
 	public void constructor_LegalCase()
 		throws Exception	{
 		Worm myWorm = new Worm(0.0 , 0.0 , Math.PI/2 , 0.30 , "Pieter");
-		assertTrue(myWorm.getWormPosition().getX() == 0);
-		assertTrue(myWorm.getWormPosition().getY() == 0);
+		assertTrue(myWorm.getX() == 0);
+		assertTrue(myWorm.getY() == 0);
 		assertTrue(myWorm.getDirection() == Math.PI/2);
 		assertTrue(myWorm.getRadius() == 0.30);
 		assertTrue(myWorm.getCurrentActionPoints() == (int)Math.round(myWorm.getMass()));

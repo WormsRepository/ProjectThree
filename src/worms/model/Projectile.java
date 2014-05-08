@@ -53,8 +53,8 @@ public class Projectile extends Position{
 		
 		this.setWorld(worm.getWorld());
 		try{
-			this.setInitialPosition(worm.getWormPosition().getX(), 
-					worm.getWormPosition().getY(), worm.getRadius());
+			this.setInitialPosition(worm.getX(), 
+					worm.getY(), worm.getRadius());
 		}
 		catch(IllegalArgumentException exc){
 			this.deactivate();

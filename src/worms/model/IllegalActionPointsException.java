@@ -31,10 +31,24 @@ public class IllegalActionPointsException extends RuntimeException
 	 */
 	public IllegalActionPointsException(int actionPoints, Worm worm)
 	{
-		this.actionPoints= actionPoints;
+		this.actionPoints = actionPoints;
 		this.worm = worm;
 	}
+	 
+	/**
+	 * Initialize this new illegal action points exception with given action points and no worm.
+	 * 
+	 * @param 	actionPoints
+	 * 			The action points for this new illegal action points exception.
+	 * @effect	This new illegal action points exception is initialized with the given action
+	 * 			points as its action points and null as the worm it references.
+	 * 			| this(actionPoints, null)
+	 */
+	public IllegalActionPointsException(int actionPoints){
+		this(actionPoints, null);
+	}
 
+	
 
 	/**
 	 * Return the action points of this illegal action points exception.

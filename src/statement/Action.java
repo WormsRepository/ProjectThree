@@ -35,6 +35,7 @@ public abstract class Action extends S{
 		if(worm != null){
 			try{
 				method.invoke(getActionHandler());
+				method.invoke(worm, args)
 			}
 			catch(IllegalAccessException exc){
 				assert false;
