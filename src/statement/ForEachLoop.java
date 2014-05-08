@@ -2,6 +2,8 @@ package statement;
 
 import be.kuleuven.cs.som.annotate.*;
 import type.Entity;
+import worms.model.Food;
+import worms.model.Worm;
 import worms.model.programs.ProgramFactory.ForeachType;
 
 
@@ -45,9 +47,16 @@ public class ForEachLoop extends S{
 
 	@Override
 	public void execute(Entity entity) {
-		for(getType() type: getType()){
-			
+		switch(this.getType()){
+		case WORM: for(Worm worm: entity.getWorld().getWorms()){
+			this.getBody().execute(worm);
 		}
-		//TODO implement method
+		case FOOD: for(Food food: entity.getWorld().getFood()){
+			this.getBody().execute(food);
+		}
+		case ANY: for(Entity tempEntity: entity.getWorld().getAny()){
+			this.getBody().execute(tempEntity);
+		}
+		}
 	}
 }
