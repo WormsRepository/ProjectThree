@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Random;
+import type.Entity;
 
 import be.kuleuven.cs.som.annotate.Basic;
 import be.kuleuven.cs.som.annotate.Model;
@@ -549,7 +550,17 @@ public class World {
 	 */
 	private HashSet<Team> teams = new HashSet<Team>();
 
-	
+	/**
+	 * Return all the worms and food rations that are attached to this world.
+	 * 
+	 * @return	| result == (getFood() && getWorms())
+	 */
+	public Collection <Entity> getAny(){
+		HashSet<Entity> hashSet = new HashSet<Entity>();
+		hashSet.addAll(getFood());
+		hashSet.addAll(getWorms());
+		return hashSet;
+	}
 	
 	/**
 	 * returns the food object if it in within the given radius on the given position.

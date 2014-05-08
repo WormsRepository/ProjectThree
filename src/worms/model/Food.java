@@ -85,13 +85,6 @@ public class Food extends Position{
 				(getWorld() == null || getWorld().hasAsFood(this));
 	}
 	
-	/**
-	 * Return the world to which this food is attached.
-	 */
-	@Basic @Raw
-	public World getWorld(){
-		return this.world;
-	}
 	
 	/**
 	 * Set the world to which this food is attached to the given world.
@@ -105,16 +98,12 @@ public class Food extends Position{
 	 * @post	| new.getWorld() == world
 	 */
 	@Raw
-	void setWorld(@Raw World world){
+	protected void setWorld(@Raw World world){
 		assert(world == null || world.hasAsFood(this));
 		assert(world != null || getWorld() == null || !getWorld().hasAsFood(this));
 		this.world = world;
 	}
-	
-	/**
-	 * Variable referencing the world to which this food is attached.
-	 */
-	private World world = null;
+
 	
 	
 	

@@ -74,13 +74,7 @@ public class Worm extends WormPosition{
 		//TODO program in constructor
 	}
 
-	/**
-	 * Return the world to which this worm is attached.
-	 */
-	@Basic @Raw
-	public World getWorld(){
-		return this.world;
-	}
+
 	
 	
 	/**
@@ -127,13 +121,6 @@ public class Worm extends WormPosition{
 		assert(world != null || getWorld() == null || !getWorld().hasAsWorm(this));
 		this.world = world;
 	}
-	
-	
-	
-	/**
-	 * Variable referencing the world to which this worm is attached.
-	 */
-	private World world = null;
 	
 
 	

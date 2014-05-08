@@ -124,15 +124,19 @@ public class Weapon {
 	/**
 	 * returns the mass of this weapon based on the current weapon.
 	 * 
-	 * @return	the mass of the weapon
+	 * @return	the mass of the weapon.
+	 * 			| if(getCurrentWeapon() == null)
+	 * 			|		then (result == 0)
 	 * 			| if(getCurrentWeapon().equals("Bazooka")
-	 * 			| 		then ( return 0.300 )
+	 * 			| 		then ( result == 0.300 )
 	 * 			| if(getCurrentWeapon().equals("Rifle")
-	 * 			|		then ( return 0.010)
-	 * 			| else	( return 0 )
+	 * 			|		then ( result == 0.010)
+	 * 			| else	( result == 0 )
 	 */
 	@Model
 	private double getMassOfWeapon(){
+		if(this.getCurrentWeapon() == null)
+			return 0;
 		if(this.getCurrentWeapon().equals("Bazooka"))
 			return 0.300;
 		else if(this.getCurrentWeapon().equals("Rifle"))
@@ -143,14 +147,19 @@ public class Weapon {
 	/**
 	 * Calculate the initial velocity for the projectile based on the propulsion.
 	 * 
-	 * @return	The initial velocity of the projectile
+	 * @return	The initial velocity of the projectile.
+	 * 			| if(getCurrentWeapon() == null)
+	 * 			|		then (result == 0)
 	 * 			| if(getCurrentWeapon().equals("Bazooka")
 	 * 			|		then ( initialVelocity = 2.5 + 7.0*(propulsion/100.0) )
 	 * 			| if(getCurrentWeapon().equals("Rifle")
 	 * 			|		then ( initialVelocity = 1.5 )
+	 * 			| result == (initialVelocity / getMassOfWeapon() * 0.5)
 	 */
 	@Model
 	private double getInitialVelocity(int propulsion){
+		if(getCurrentWeapon() == null)
+			return 0;
 		double initialVelocity = 0.0;
 		if(this.getCurrentWeapon().equals("Bazooka"))
 			initialVelocity = 2.5 + 7.0*(propulsion/100.0);
@@ -164,15 +173,19 @@ public class Weapon {
 	 * returns the cost of action points of the weapon, based on the currently selected weapon.
 	 * 
 	 * @return	the cost of action points 
+	 * 			| if(getCurrentWeapon() == null)
+	 * 			|		then (result == 0)
 	 * 			| if(getCurrentWeapon().equals("Bazooka")
-	 * 			|		then ( return 50 )
+	 * 			|		then (result == 50)
 	 * 			| if(getCurrentWeapon().equals("Rifle")
-	 * 			|		then ( return 10 )
+	 * 			|		then (result == 10)
 	 * 			| else
 	 * 			|		(return 0)
 	 */
 	@Model
 	private int getCostOfActionPointsOfWeapon(){
+		if(this.getCurrentWeapon() == null)
+			return 0;
 		if(this.getCurrentWeapon().equals("Bazooka"))
 			return 50;
 		else if(this.getCurrentWeapon().equals("Rifle"))
@@ -185,15 +198,19 @@ public class Weapon {
 	 * returns the damage of the weapon based on the weapon.
 	 * 
 	 * @return	The damage of the weapon
+	 * 			| if(getCurrentWeapon() == null)
+	 * 			|		then (result == 0)
 	 * 			| if(getCurrentWeapon().equals("Bazooka")
-	 * 			|		then ( return 80 )
+	 * 			|		then ( result == 80 )
 	 * 			| if(getCurrentWeapon().equals("Rifle")
-	 * 			|		then ( return 20 )
+	 * 			|		then ( result == 20 )
 	 * 			| else
-	 * 			|		(return 0)
+	 * 			|		(result == 0)
 	 */
 	@Model
 	private int getDamageOfWeapon(){
+		if(this.getCurrentWeapon() == null)
+			return 0;
 		if(this.getCurrentWeapon().equals("Bazooka"))
 			return 80;
 		else if(this.getCurrentWeapon().equals("Rifle"))

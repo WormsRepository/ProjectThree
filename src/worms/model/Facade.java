@@ -379,15 +379,15 @@ public class Facade implements IFacade {
 
 	@Override
 	public void addNewWorm(World world, Program program) {
-		// TODO Auto-generated method stub
-		// TODO add this facade to program
+		world.addNewWorm();
 	}
 
 	@Override
 	public Worm createWorm(World world, double x, double y, double direction,
 			double radius, String name, Program program) {
-		// TODO Auto-generated method stub
-		return null;
+		Worm worm = new Worm(x, y, direction, radius, name);
+		world.addAsWorm(worm);
+		return worm;
 	}
 
 	@Override

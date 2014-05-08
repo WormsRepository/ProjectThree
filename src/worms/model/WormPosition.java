@@ -479,8 +479,6 @@ public abstract class WormPosition extends Position{
 	
 	protected abstract void growInRadius();
 	
-	protected abstract World getWorld();
-	
 	protected abstract int getCurrentActionPoints();
 	
 	protected abstract void setCurrentActionPoints(int newActionPoints);

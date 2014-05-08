@@ -1,14 +1,21 @@
 package type;
 
-public class Entity extends T{
+import be.kuleuven.cs.som.annotate.*;
+import worms.model.World;
+
+public abstract class Entity extends T{
 	
-	public Entity(Object object){
-		this.object = object;
+	/**
+	 * Get the world to which this entity is attached.
+	 */
+	@Basic @Raw
+	public World getWorld(){
+		return this.world;
 	}
 	
-	public Object getObject(){
-		return this.object;
-	}
+	protected abstract void setWorld(World world);
 	
-	private Object object = null;
+	protected World world = null;
+	
+	
 }

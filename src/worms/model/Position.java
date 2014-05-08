@@ -1,5 +1,6 @@
  package worms.model;
 
+import type.Entity;
 import be.kuleuven.cs.som.annotate.*;
 
 /**
@@ -11,7 +12,7 @@ import be.kuleuven.cs.som.annotate.*;
  * @version	1.0
  * @author 	Laurens Loots, Pieter Vos
  */
-public abstract class Position{
+public abstract class Position extends Entity{
 	
 	/**
 	 * Create a new position that has the given x-coordinate and y-coordinate.

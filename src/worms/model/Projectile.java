@@ -341,14 +341,6 @@ public class Projectile extends Position{
 	}
 	
 	/**
-	 * Return the reference to the world to which this projectile belongs
-	 */
-	@Basic @Raw
-	public World getWorld(){
-		return this.world;
-	}
-	
-	/**
 	 * Set the world of this projectile to the given world.
 	 * 
 	 * @param 	world
@@ -369,10 +361,6 @@ public class Projectile extends Position{
 		world.setProjectile(this);
 	}
 	
-	/**
-	 * Variable referencing the world to which this projectile belongs.
-	 */
-	private World world = null;
 	
 	
 	
