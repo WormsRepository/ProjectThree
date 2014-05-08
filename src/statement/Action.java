@@ -1,7 +1,5 @@
 package statement;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import type.Entity;
 import worms.model.Facade;
@@ -15,8 +13,8 @@ public abstract class Action extends S{
 	}
 
 	public Worm getWorm(Entity entity){
-		if(entity.getObject() instanceof Worm)
-			return (Worm) entity.getObject();
+		if(entity instanceof Worm)
+			return (Worm) entity;
 		return null;
 	}
 	
@@ -26,20 +24,15 @@ public abstract class Action extends S{
 		return this.actionHandler;
 	}
 	
-	//TODO check if the right facade is added to this handler.
 	private SimpleActionHandler actionHandler = new SimpleActionHandler(new Facade());
 	
-	protected void execute(Entity entity, Method method) 
-			throws InvocationTargetException{
+	protected abstract void executeAction(Worm worm);
+	
+	@Override
+	public void execute(Entity entity){
 		Worm worm = getWorm(entity);
 		if(worm != null){
-			try{
-				method.invoke(getActionHandler());
-				method.invoke(worm, args)
-			}
-			catch(IllegalAccessException exc){
-				assert false;
-			}
+			this.executeAction(worm);
 		}
 		else{
 			// TODO stop program

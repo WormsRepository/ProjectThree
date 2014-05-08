@@ -1,8 +1,7 @@
 package statement.action;
 
 import statement.Action;
-import type.Entity;
-import worms.model.SimpleActionHandler;
+import worms.model.Worm;
 
 public class Move extends Action{
 	
@@ -10,12 +9,8 @@ public class Move extends Action{
 		super(line, column);
 	}
 
-	// TODO implementing class
-	
 	@Override
-	public void execute(Entity entity) {
-		execute(entity, move(getWorm(entity)));
-			//TODO jumpen met deze facade als facade
-		
+	protected void executeAction(Worm worm) {
+		getActionHandler().move(worm);
 	}
 }
