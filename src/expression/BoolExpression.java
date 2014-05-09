@@ -1,5 +1,7 @@
 package expression;
 
+import be.kuleuven.cs.som.annotate.Basic;
+
 public abstract class BoolExpression extends E{
 
 	public BoolExpression(int line, int column) {
@@ -14,7 +16,8 @@ public abstract class BoolExpression extends E{
 		this.value = value;
 	}
 	
-	protected boolean getValue(){
+	@Basic
+	public boolean getValue(){
 		return this.value;
 	}
 	
