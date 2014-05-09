@@ -15,8 +15,8 @@ public abstract class Entity extends T{
 	
 	protected abstract void setWorld(World world);
 	
-	protected abstract double getX();
-	protected abstract double getY();
+	public abstract double getX();
+	public abstract double getY();
 	
 	protected World world = null;
 	

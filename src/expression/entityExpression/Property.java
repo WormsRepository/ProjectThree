@@ -12,7 +12,10 @@ public abstract class Property extends EntityExpression{
 	}
 	
 	public double getValue(){
-		return this.getProperty(getEntity());
+		if(getEntity() != null)
+			return this.getProperty(getEntity());
+		else
+			return 0;
 	}
 	
 	protected abstract double getProperty(Entity entity);
