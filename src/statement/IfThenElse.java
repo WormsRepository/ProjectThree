@@ -53,8 +53,8 @@ public class IfThenElse extends S{
 		}
 		else{
 			System.out.println("Class: IfThenElse: execution error");
-			if(Worm.class.isInstance(entity.getObject())){
-				Worm worm = (Worm) entity.getObject();
+			if(Worm.class.isInstance(entity)){
+				Worm worm = (Worm) entity;
 				if(worm.hasProgram())
 					worm.getProgram().setExecuting(false);
 				// TODO fix this

@@ -40,8 +40,9 @@ public class WhileLoop extends S{
 		}
 		else{
 			System.out.println("Class: WhileLoop: execution error");
-			if(Worm.class.isInstance(entity.getObject())){
-				Worm worm = (Worm) entity.getObject();
+			if(Worm.class.isInstance(entity)){
+				//TODO make stopProgram in S
+				Worm worm = (Worm) entity;
 				if(worm.hasProgram())
 					worm.getProgram().setExecuting(false);
 				// TODO fix this

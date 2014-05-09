@@ -2,6 +2,7 @@ package statement;
 
 import be.kuleuven.cs.som.annotate.*;
 import type.Entity;
+import expression.DoubleExpression;
 import expression.E;
 
 public class Print extends S{
@@ -20,6 +21,6 @@ public class Print extends S{
 	
 	@Override
 	public void execute(Entity entity) {
-		System.out.println(getE().getValue());
+		System.out.println(((DoubleExpression) getE()).getValue());
 	}
 }

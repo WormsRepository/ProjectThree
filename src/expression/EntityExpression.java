@@ -16,5 +16,9 @@ public abstract class EntityExpression extends E{
 		return this.entity;
 	}
 	
+	protected void setEntity(Entity entity){
+		this.entity = entity;
+	}
+	
 	private Entity entity = null;
 }
