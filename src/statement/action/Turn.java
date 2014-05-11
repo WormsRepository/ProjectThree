@@ -1,6 +1,7 @@
 package statement.action;
 
 import be.kuleuven.cs.som.annotate.Basic;
+import expression.DoubleExpression;
 import expression.E;
 import statement.Action;
 import worms.model.Worm;
@@ -21,7 +22,7 @@ public class Turn extends Action{
 	
 	@Override
 	protected void executeAction(Worm worm) {
-		getActionHandler().turn(worm, getAngle().getValue());
+		getActionHandler().turn(worm, ((DoubleExpression) getAngle()).getValue());
 	}
 	
 }

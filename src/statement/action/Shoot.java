@@ -1,6 +1,7 @@
 package statement.action;
 
 import be.kuleuven.cs.som.annotate.Basic;
+import expression.DoubleExpression;
 import expression.E;
 import statement.Action;
 import worms.model.Worm;
@@ -21,6 +22,6 @@ public class Shoot extends Action{
 	
 	@Override
 	protected void executeAction(Worm worm) {
-		getActionHandler().fire(worm, this.getYield().getValue());
+		getActionHandler().fire(worm, (int)((DoubleExpression) this.getYield()).getValue());
 	}
 }
