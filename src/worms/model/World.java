@@ -332,6 +332,7 @@ public class World {
 	 * 			the given y value
 	 * @return	|!getPassableMap()[intX][intY]
 	 */
+	//TODO documentation
 	@Raw
 	private boolean isImpassablePoint(double x, double y){
 		int intX, intY;
@@ -341,8 +342,12 @@ public class World {
 		intY = (int)Math.floor(temp);
 		if(intX >= getPassableMap().length)
 			intX = getPassableMap().length - 1;
+		else if(intX < 0)
+			intX = 0;
 		if(intY >= getPassableMap()[0].length)
 			intY = getPassableMap()[0].length - 1;
+		else if(intY < 0)
+			intY = 0;
 		return !getPassableMap()[intX][intY];
 	}
 	
