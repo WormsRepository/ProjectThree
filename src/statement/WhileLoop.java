@@ -3,6 +3,7 @@ package statement;
 import be.kuleuven.cs.som.annotate.*;
 import type.Entity;
 import worms.model.Worm;
+import expression.BoolExpression;
 import expression.E;
 
 public class WhileLoop extends S{
@@ -34,7 +35,7 @@ public class WhileLoop extends S{
 	@Override
 	public void execute(Entity entity) {
 		if(this.getCondition() instanceof BoolExpression){
-			while(getCondition().getBoolValue()){
+			while(((BoolExpression) this.getCondition()).getValue()){
 				getBody().execute(entity);
 			}
 		}

@@ -8,9 +8,6 @@ public abstract class BoolExpression extends E{
 		super(line, column);
 	}
 
-	protected abstract void setValue(boolean[] booleans);
-	
-	protected abstract void setValue(double[] values);
 	
 	protected void setValue(boolean value){
 		this.value = value;
