@@ -57,7 +57,7 @@ public class IfThenElse extends S{
 			if(Worm.class.isInstance(entity)){
 				Worm worm = (Worm) entity;
 				if(worm.hasProgram())
-					worm.getProgram().setExecuting(false);
+					worm.getProgram().setIsExecuting(false);
 				// TODO fix this
 			}
 		}

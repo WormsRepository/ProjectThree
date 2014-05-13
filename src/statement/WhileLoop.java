@@ -45,7 +45,7 @@ public class WhileLoop extends S{
 				//TODO make stopProgram in S
 				Worm worm = (Worm) entity;
 				if(worm.hasProgram())
-					worm.getProgram().setExecuting(false);
+					worm.getProgram().setIsExecuting(false);
 				// TODO fix this
 			}
 		}

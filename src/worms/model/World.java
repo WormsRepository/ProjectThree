@@ -659,6 +659,45 @@ public class World {
 		return new HashSet<Food>(this.foodRations);
 	}
 	
+	private double[] getNewPosition(double radius){
+		//find a location for the food
+		//determine at which wall we will start searching for a proper place
+		// 0: left wall  1: right wall,  2: bottom wall,  3: top wall
+		double getal = random.nextInt(4);
+		double testX = 0, testY = 0;
+		if(getal == 0){
+			testX = 0;
+			testY = randomStartY();
+		}
+		if(getal == 1){
+			testX = this.getWidth();
+			testY = randomStartY();
+		}
+		if(getal == 2){
+			testX = randomStartX();
+			testY = 0;
+		}
+		if(getal == 3){
+			testX = randomStartX();
+			testY = this.getHeight();
+		}
+		//determine the exact location by constantly checking a place, and going closer to the middle
+		// as suggested in the assignment.
+
+		while (!isAdjacent(testX, testY, radius) && Math.abs(testX-(getWidth()/2)) > 0.1 && Math.abs(testY-(getHeight()/2)) > 0.1)
+		{
+			testX = newX(testX);
+			testY = newY(testY);
+		}
+		if(!isAdjacent(testX, testY, radius)){
+			return getNewPosition(radius);
+		}
+		else{
+			double[] position = {testX, testY};
+			return position;
+		}
+	}
+	
 	/**
 	 * Create and add a new food ration to the given world.
 	 * The food must be placed at a random adjacent location.
@@ -668,36 +707,8 @@ public class World {
 	//TODO moeilijker docu
 	public void addNewFood() 
 			throws IllegalArgumentException{
-		//find a location for the food
-				//determine at which wall we will start searching for a proper place
-				// 0: left wall  1: right wall,  2: bottom wall,  3: top wall
-				double getal = random.nextInt(4);
-				double testX = 0, testY = 0;
-				if(getal == 0){
-					testX = 0;
-					testY = randomStartY();
-				}
-				if(getal == 1){
-					testX = this.getWidth();
-					testY = randomStartY();
-				}
-				if(getal == 2){
-					testX = randomStartX();
-					testY = 0;
-				}
-				if(getal == 3){
-					testX = randomStartX();
-					testY = this.getHeight();
-				}
-				//determine the exact location by constantly checking a place, and going closer to the middle
-				// as suggested in the assignment.
-
-				while (! isAdjacent(testX, testY, 0.20 ))
-				{
-					testX = newX(testX);
-					testY = newY(testY);
-				}
-				Food newFood = new Food(testX, testY);
+				double[] position = getNewPosition(Food.getRadius());
+				Food newFood = new Food(position[0], position[1]);
 				this.addAsFood(newFood);
 	}
 	
@@ -938,39 +949,12 @@ public class World {
 	//TODO moeilijke docu
 	public void addNewWorm() 
 			throws IllegalArgumentException{
-		//find a location for the worm
-		//determine at which wall we will start searching for a proper place
-		// 0: left wall  1: right wall,  2: bottom wall,  3: top wall
-		double getal = random.nextInt(4);
-		double testX = 0, testY = 0;
-		if(getal == 0){
-			testX = 0;
-			testY = randomStartY();
-		}
-		if(getal == 1){
-			testX = this.getWidth();
-			testY = randomStartY();
-		}
-		if(getal == 2){
-			testX = randomStartX();
-			testY = 0;
-		}
-		if(getal == 3){
-			testX = randomStartX();
-			testY = this.getHeight();
-		}
-		//determine the exact location by constantly checking a place, and going closer to the middle
-		// as suggested in the assignment.
-
-		while (! isAdjacent(testX, testY, 0.25 ))
-		{
-			testX = newX(testX);
-			testY = newY(testY);
-		}
 		int grootte = worms.size() + 1;
 		String name = "Not Yet Named " + grootte;
 				
-		Worm newWorm = new Worm(testX, testY, 0, 0.25, name);
+		
+		double[] position = getNewPosition(0.25);
+		Worm newWorm = new Worm(position[0], position[1], 0, 0.25, name);
 		this.addAsWorm(newWorm);
 		
 		if(teams.size() > 1){
