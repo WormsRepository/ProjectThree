@@ -380,6 +380,7 @@ public class Facade implements IFacade {
 	@Override
 	public void addNewWorm(World world, Program program) {
 		world.addNewWorm();
+		//TODO add program to new worm
 	}
 
 	@Override
@@ -388,6 +389,7 @@ public class Facade implements IFacade {
 		Worm worm = new Worm(x, y, direction, radius, name);
 		world.addAsWorm(worm);
 		return worm;
+		//TODO add program to worm...
 	}
 
 	@Override
