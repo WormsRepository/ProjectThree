@@ -1,15 +1,18 @@
 package expression.boolExpression;
 
+import worms.model.Worm;
 import be.kuleuven.cs.som.annotate.Basic;
 import expression.BoolExpression;
 import expression.E;
+import expression.EntityExpression;
 
 public class SameTeam extends BoolExpression{
 
-	public SameTeam(int line, int column, E e) {
+	public SameTeam(int line, int column, E e, Worm worm) {
 		super(line, column);
 		this.e = e;
-		setValue();
+		this.worm = worm;
+		setValue(sameTeam());
 	}
 	
 	
@@ -20,7 +23,24 @@ public class SameTeam extends BoolExpression{
 	
 	private final E e;
 	
+	
+	@Basic
+	public Worm getWorm(){
+		return this.worm;
+	}
+	
+	private final Worm worm;
+	
+	
 	private boolean sameTeam(){
-		
+		if(getE() instanceof EntityExpression){
+			if(((EntityExpression) getE()).getEntity() instanceof Worm && getWorm() != null){
+				Worm x = (Worm) ((EntityExpression) getE()).getEntity();
+				return x.getTeam() == getWorm().getTeam();
+			}
+		}
+		//TODO stop program
+		return false;
+				
 	}
 }

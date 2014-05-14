@@ -2,15 +2,27 @@ package worms.model;
 
 import java.util.Map;
 
+import be.kuleuven.cs.som.annotate.Basic;
 import statement.S;
 import type.T;
 import expression.E;
 
 public class Program {
 	
-	public Program(){
-		
+	public Program(Worm worm){
+		this.worm = worm;
+		//TODO worm.setProgram
 	}
+	
+	//TODO implementedPF hier initialiseren met actionHandler en worm
+	
+	@Basic
+	public Worm getWorm(){
+		return this.worm;
+	}
+	
+	private final Worm worm;
+	
 	
 	public Map<String, T> getGlobals(){
 		return this.globals;
@@ -48,4 +60,5 @@ public class Program {
 	public void execute(){
 		getStatement().execute(getWorm());
 	}
+	//TODO beginnen vanaf laatst uitgevoerde statement
 }

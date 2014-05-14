@@ -1,15 +1,16 @@
 package statement;
 
 
+import be.kuleuven.cs.som.annotate.Basic;
 import type.Entity;
-import worms.model.Facade;
-import worms.model.SimpleActionHandler;
+import worms.gui.game.IActionHandler;
 import worms.model.Worm;
 
 public abstract class Action extends S{
 	
-	public Action(int line, int column) {
+	public Action(int line, int column, IActionHandler handler) {
 		super(line, column);
+		this.actionHandler = handler;
 	}
 
 	public Worm getWorm(Entity entity){
@@ -19,12 +20,13 @@ public abstract class Action extends S{
 	}
 	
 	
-	
-	public SimpleActionHandler getActionHandler(){
+	@Basic
+	public IActionHandler getActionHandler(){
 		return this.actionHandler;
 	}
 	
-	private SimpleActionHandler actionHandler = new SimpleActionHandler(new Facade());
+	private final IActionHandler actionHandler;
+	
 	
 	protected abstract void executeAction(Worm worm);
 	
