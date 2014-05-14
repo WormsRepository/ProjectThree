@@ -1,7 +1,9 @@
 package worms.model;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Random;
+import java.util.Scanner;
 
 import worms.gui.game.IActionHandler;
 import worms.model.programs.ParseOutcome;
@@ -389,20 +391,28 @@ public class Facade implements IFacade {
 		Worm worm = new Worm(x, y, direction, radius, name);
 		world.addAsWorm(worm);
 		return worm;
+		//TODO na worm aan te maken, worm van implementedPF setten.
+		//TODO na worm aan te maken, associatie worm en program (en omgekeerd) maken.
 		//TODO add program to worm...
 	}
-
+ //TODO assistent evaluatie invullen.
 	@Override
 	public ParseOutcome<?> parseProgram(String programText,
 			IActionHandler handler) {
-		// TODO Auto-generated method stub
+		
+		
+		Program program = new Program();
+		program.setHandler(handler);
+		
+		program.parseProgram(programText);
+		
+		//TODO return the parseOutcome (waar ge dieje haalt, geen idee.)
 		return null;
 	}
 
 	@Override
 	public boolean hasProgram(Worm worm) {
-		// TODO Auto-generated method stub
-		return false;
+		return worm.getProgram() != null;
 	}
 
 	@Override

@@ -18,8 +18,10 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 	
 	public ImplementedPF(IActionHandler handler, Worm worm){
 		this.handler = handler;
-		this.worm = worm;
+
 	}
+	
+	
 
 	@Basic
 	public IActionHandler getHandler(){
@@ -28,13 +30,17 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 	
 	private final IActionHandler handler;
 	
+	@Basic
+	public void setWorm(Worm worm){
+		this.worm = worm;
+	}
 	
 	@Basic
 	public Worm getWorm(){
 		return this.worm;
 	}
 	
-	private final Worm worm;
+	private Worm worm;
 
 
 	@Override

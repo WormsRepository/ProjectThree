@@ -1,4 +1,8 @@
 package worms.model;
+import statement.*;
+import worms.gui.game.*;
+import worms.model.programs.ParseOutcome;
+import worms.model.programs.ProgramParser;
 
 import java.util.Map;
 
@@ -9,19 +13,18 @@ import expression.E;
 
 public class Program {
 	
-	public Program(Worm worm){
-		this.worm = worm;
-		//TODO worm.setProgram
+	public Program(){
+		//TODO set worm in program
 	}
 	
-	//TODO implementedPF hier initialiseren met actionHandler en worm
+	
 	
 	@Basic
 	public Worm getWorm(){
 		return this.worm;
 	}
 	
-	private final Worm worm;
+	private Worm worm = null;
 	
 	
 	public Map<String, T> getGlobals(){
@@ -42,7 +45,7 @@ public class Program {
 		this.statement = statement;
 	}
 	
-	private S statement;
+	private S statement = null;
 	
 	
 	
@@ -57,8 +60,47 @@ public class Program {
 	private boolean isExecuting;
 	//TODO: true or false?
 	
-	public void execute(){
-		getStatement().execute(getWorm());
+	public void executeNext(){
+		getNextStatement().execute(getWorm());
 	}
 	//TODO beginnen vanaf laatst uitgevoerde statement
+	public S getNextStatement(){
+		//TODO (Sequence)(statement).getStatements();
+		//TODO nummer van statement zoeken adhv nrStatement.
+		return null;
+	}
+	
+	private int nrStatement = 0;
+	//TODO implementedPF hier initialiseren met actionHandler en worm
+	@Basic
+	public ImplementedPF getFactory(){
+		return factory;
+	}
+	@Basic
+	public void setFactory(ImplementedPF factory){
+		this.factory = factory;
+	}
+	private ImplementedPF factory = null;
+	
+	
+	public IActionHandler getHandler(){
+		return handler;
+	}
+	@Basic
+	public void setHandler(IActionHandler handler){
+		this.handler = handler;
+	}
+	private IActionHandler handler = null;
+	
+	public void parseProgram(String programText){
+		ProgramParser<E, S, T> parser = new ProgramParser<E, S, T>(factory);
+		parser.parse(programText);
+		
+		//set the globals for the program.
+		this.setGlobals(parser.getGlobals());
+		//set the statement for the program.
+		this.setStatement((S)(parser.getStatement()));
+		//TODO iets me parserOutcome.
+		
+	}
 }
