@@ -248,8 +248,7 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	@Override
 	public S createAssignment(int line, int column, String variableName, E rhs) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Assignment(line, column, variableName, rhs);
 	}
 
 	@Override

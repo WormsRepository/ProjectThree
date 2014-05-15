@@ -57,6 +57,7 @@ public class ForEachLoop extends S{
 		case ANY: for(Entity tempEntity: entity.getWorld().getAny()){
 			this.getBody().execute(tempEntity);
 		}
+		//TODO variabele toekennen?
 		}
 	}
 }

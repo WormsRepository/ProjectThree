@@ -35,7 +35,7 @@ public class WhileLoop extends S{
 	@Override
 	public void execute(Entity entity) {
 		if(this.getCondition() instanceof BoolExpression){
-			while(((BoolExpression) this.getCondition()).getValue()){
+			while(((BoolExpression) this.getCondition()).getValue().getBoolean()){
 				getBody().execute(entity);
 			}
 		}

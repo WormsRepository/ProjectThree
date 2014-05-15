@@ -2,9 +2,11 @@ package expression;
 
 import java.util.Map;
 
+import type.Entity;
 import type.T;
 import worms.model.Worm;
 import be.kuleuven.cs.som.annotate.Basic;
+import type.Double;
 
 public class VariableAccess extends E{
 
@@ -34,7 +36,11 @@ public class VariableAccess extends E{
 
 	@Override
 	public T getValue(){
-		Map<String, T> globals = worm.getProgram().getGlobals();
-		return globals.get(getName());
+		if(getWorm() != null && getWorm().getProgram() != null){
+			Map<String, T> globals = worm.getProgram().getGlobals();
+			return globals.get(getName());
+		}
+		return new Double();
+		//TODO fix this.(iets me worm) maak er new T() van als mogelijk...
 	}
 }
