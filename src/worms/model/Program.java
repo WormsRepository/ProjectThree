@@ -13,8 +13,10 @@ import expression.E;
 
 public class Program {
 	
-	public Program(){
-		//TODO set worm in program
+	public Program(Map<String, T> globals, S statement, IActionHandler handler){
+		this.setHandler(handler);
+		this.setGlobals(globals);
+		this.setStatement(statement);
 	}
 	
 	
@@ -92,15 +94,5 @@ public class Program {
 	}
 	private IActionHandler handler = null;
 	
-	public void parseProgram(String programText){
-		ProgramParser<E, S, T> parser = new ProgramParser<E, S, T>(factory);
-		parser.parse(programText);
-		
-		//set the globals for the program.
-		this.setGlobals(parser.getGlobals());
-		//set the statement for the program.
-		this.setStatement((S)(parser.getStatement()));
-		//TODO iets me parserOutcome.
-		
-	}
+
 }

@@ -135,4 +135,7 @@ public abstract class Position extends Entity{
 	 * Variable registering the y-coordinate of a position in meters.
 	 */
 	private double y = 0;
+	
+	protected abstract void setWorld(World world);
+	
 }

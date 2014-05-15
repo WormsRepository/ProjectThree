@@ -1,5 +1,9 @@
 package worms.model;
 
+import type.Double;
+import type.Boolean;
+import type.Entity;
+
 import java.util.List;
 
 import expression.*;
@@ -16,7 +20,7 @@ import worms.model.programs.ProgramFactory;
 
 public class ImplementedPF implements ProgramFactory<E, S, T>{
 	
-	public ImplementedPF(IActionHandler handler, Worm worm){
+	public ImplementedPF(IActionHandler handler){
 		this.handler = handler;
 
 	}
@@ -278,19 +282,16 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	@Override
 	public T createDoubleType() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Double();
 	}
 
 	@Override
 	public T createBooleanType() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Boolean();
 	}
 
 	@Override
 	public T createEntityType() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Entity();
 	}
 }

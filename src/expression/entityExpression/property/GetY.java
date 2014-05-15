@@ -1,6 +1,7 @@
 package expression.entityExpression.property;
 
 import type.Entity;
+import worms.model.Position;
 import expression.E;
 import expression.entityExpression.Property;
 
@@ -12,6 +13,6 @@ public class GetY extends Property{
 
 	@Override
 	protected double getProperty(Entity entity) {
-		return entity.getY();
+		return ((Position) entity).getY();
 	}
 }

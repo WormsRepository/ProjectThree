@@ -5,8 +5,12 @@ import java.util.Collection;
 import java.util.Random;
 import java.util.Scanner;
 
+import expression.E;
+import statement.S;
+import type.T;
 import worms.gui.game.IActionHandler;
 import worms.model.programs.ParseOutcome;
+import worms.model.programs.ProgramParser;
 
 public class Facade implements IFacade {
 
@@ -400,14 +404,17 @@ public class Facade implements IFacade {
 	public ParseOutcome<?> parseProgram(String programText,
 			IActionHandler handler) {
 		
+		ImplementedPF factory = new ImplementedPF(handler);
+		ProgramParser<E, S, T> parser = new ProgramParser<E, S, T>(factory);
+		parser.parse(programText);		
+		if(!parser.getErrors().isEmpty())
+		{
+			System.out.println(parser.getErrors().get(0));
+			return ParseOutcome.failure(parser.getErrors());
+		}
+		else
+			return ParseOutcome.success(new Program(parser.getGlobals(), parser.getStatement(), handler));
 		
-		Program program = new Program();
-		program.setHandler(handler);
-		
-		program.parseProgram(programText);
-		
-		//TODO return the parseOutcome (waar ge dieje haalt, geen idee.)
-		return null;
 	}
 
 	@Override
