@@ -47,7 +47,7 @@ public class IfThenElse extends S{
 	@Override
 	public void execute(Entity entity) {
 		if(this.getCondition() instanceof BoolExpression){
-			if( ((BoolExpression) this.getCondition()).getValue())
+			if( ((BoolExpression) this.getCondition()).getValue().getBoolean())
 				getThen().execute(entity);
 			else
 				getOtherwise().execute(entity);

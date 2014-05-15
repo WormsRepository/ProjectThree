@@ -2,8 +2,10 @@ package statement;
 
 import be.kuleuven.cs.som.annotate.*;
 import type.Entity;
+import expression.BoolExpression;
 import expression.DoubleExpression;
 import expression.E;
+import expression.EntityExpression;
 
 public class Print extends S{
 	
@@ -21,6 +23,11 @@ public class Print extends S{
 	
 	@Override
 	public void execute(Entity entity) {
-		System.out.println(((DoubleExpression) getE()).getValue());
+		if(getE() instanceof DoubleExpression)
+			System.out.println(((DoubleExpression) getE()).getValue().getDouble());
+		else if(getE() instanceof BoolExpression)
+			System.out.println(((BoolExpression) getE()).getValue().getBoolean());
+		else if(getE() instanceof EntityExpression)
+			System.out.println(((EntityExpression) getE()).getValue());
 	}
 }

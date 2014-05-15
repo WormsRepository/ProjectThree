@@ -3,7 +3,8 @@ package expression.doubleExpression.property;
 import type.Entity;
 import worms.model.Worm;
 import expression.E;
-import expression.entityExpression.Property;
+import expression.doubleExpression.Property;
+
 
 public class GetHitPoints extends Property{
 
