@@ -3,7 +3,7 @@ package expression;
 import be.kuleuven.cs.som.annotate.Basic;
 import type.Double;
 
-public abstract class DoubleExpression extends E{
+public abstract class DoubleExpression extends VariableAccess{
 
 	public DoubleExpression(int line, int column) {
 		super(line, column);

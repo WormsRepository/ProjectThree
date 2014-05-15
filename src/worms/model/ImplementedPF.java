@@ -45,7 +45,7 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 		return this.worm;
 	}
 	
-	private Worm worm = new Worm(0,0,0,0.5,"Laurens");
+	private Worm worm = null;
 	//TODO veranderen;
 	
 
@@ -81,7 +81,7 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	@Override
 	public E createSelf(int line, int column) {
-		return new Self(line, column, getWorm());
+		return new Self(line, column, this);
 	}
 
 	@Override
@@ -147,7 +147,7 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	@Override
 	public E createVariableAccess(int line, int column, String name) {
-		return new VariableAccess(line, column, name, getWorm());
+		return new VariableAccess(line, column, name, this);
 	}
 	
 

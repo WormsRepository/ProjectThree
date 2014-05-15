@@ -17,6 +17,8 @@ public abstract class Property extends DoubleExpression{
 		return this.entity;
 	}
 	
+	//TODO zorgen dat entity niet null is na eerste keer parsen.
+	
 	private final Entity entity;
 	
 	@Override

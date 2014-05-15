@@ -13,11 +13,13 @@ import expression.E;
 
 public class Program {
 	
-	public Program(Map<String, T> globals, S statement, IActionHandler handler){
+	public Program(Map<String, T> globals, S statement, IActionHandler handler, ImplementedPF factory){
 		this.setHandler(handler);
 		this.setGlobals(globals);
 		this.setStatement(statement);
+		this.factory = factory;
 	}
+	
 	
 	
 	public boolean hasAsWorm(Worm worm){
@@ -39,6 +41,7 @@ public class Program {
 		if(worm.getProgram() != null)
 			throw new IllegalArgumentException();
 		this.worm = worm;
+		this.getFactory().setWorm(worm);
 		worm.setProgram(this);
 		//TODO opnieuw parsen?
 	}
@@ -91,15 +94,13 @@ public class Program {
 	
 	private int nrStatement = 0;
 	//TODO implementedPF hier initialiseren met actionHandler en worm
+	
 	@Basic
 	public ImplementedPF getFactory(){
 		return factory;
 	}
-	@Basic
-	public void setFactory(ImplementedPF factory){
-		this.factory = factory;
-	}
-	private ImplementedPF factory = null;
+
+	private final ImplementedPF factory;
 	
 	
 	public IActionHandler getHandler(){

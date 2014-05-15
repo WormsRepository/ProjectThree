@@ -3,7 +3,7 @@ package expression;
 import be.kuleuven.cs.som.annotate.Basic;
 import type.Entity;
 
-public abstract class EntityExpression extends E{
+public abstract class EntityExpression extends VariableAccess{
 
 	public EntityExpression(int line, int column) {
 		super(line, column);
