@@ -11,7 +11,7 @@ import expression.*;
 import expression.boolExpression.*;
 import expression.doubleExpression.*;
 import expression.entityExpression.*;
-import expression.entityExpression.property.*;
+import expression.doubleExpression.property.*;
 import statement.*;
 import statement.action.*;
 import type.T;
@@ -149,8 +149,6 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 	public E createVariableAccess(int line, int column, String name) {
 		return new VariableAccess(line, column, name, getWorm());
 	}
-	
-	private Map<String, T> globals;
 	
 
 	@Override
