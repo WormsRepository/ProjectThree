@@ -947,7 +947,7 @@ public class World {
 	 * 
 	 */
 	//TODO moeilijke docu
-	public void addNewWorm() 
+	public void addNewWorm(Program program) 
 			throws IllegalArgumentException{
 		int grootte = worms.size() + 1;
 		String name = "Not Yet Named " + grootte;
@@ -969,6 +969,9 @@ public class World {
 			}
 			smallestTeam.addAsTeamWorm(newWorm);
 		}
+		
+		if(program != null)
+			program.setWorm(newWorm);
 	}
 	
 

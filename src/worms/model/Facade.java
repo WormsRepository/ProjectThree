@@ -385,8 +385,7 @@ public class Facade implements IFacade {
 
 	@Override
 	public void addNewWorm(World world, Program program) {
-		world.addNewWorm();
-		//TODO add program to new worm
+		world.addNewWorm(program);
 	}
 
 	@Override
@@ -394,10 +393,10 @@ public class Facade implements IFacade {
 			double radius, String name, Program program) {
 		Worm worm = new Worm(x, y, direction, radius, name);
 		world.addAsWorm(worm);
+		if(program != null)
+			program.setWorm(worm);
 		return worm;
-		//TODO na worm aan te maken, worm van implementedPF setten.
-		//TODO na worm aan te maken, associatie worm en program (en omgekeerd) maken.
-		//TODO add program to worm...
+		//TODO na worm aan te maken, worm van implementedPF setten. (niet meer nodig?)
 	}
  //TODO assistent evaluatie invullen.
 	@Override
@@ -414,7 +413,6 @@ public class Facade implements IFacade {
 		}
 		else
 			return ParseOutcome.success(new Program(parser.getGlobals(), parser.getStatement(), handler));
-		
 	}
 
 	@Override

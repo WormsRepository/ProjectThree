@@ -70,8 +70,6 @@ public class Worm extends WormPosition{
 		setCurrentActionPoints(getMaxActionPoints());
 		setCurrentHitPoints(getMaxHitPoints());
 		setName(name);
-		program = null;
-		//TODO program in constructor
 	}
 
 
@@ -752,10 +750,17 @@ public class Worm extends WormPosition{
 		return this.program;
 	}
 	
+	//TODO documentation
+	protected void setProgram(@Raw Program program){
+		assert(program == null || program.hasAsWorm(this));
+		assert(program != null || getProgram() == null || !getProgram().hasAsWorm(this));
+		this.program = program;
+	}
+	
 	/**
 	 * Variable referencing the program to which this worm is attached.
 	 */
-	private final Program program;
+	private Program program = null;
 
 	
 	

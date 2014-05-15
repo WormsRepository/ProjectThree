@@ -60,19 +60,16 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 	@Override
 	public E createAnd(int line, int column, E e1, E e2) {
 		return new Conjunction(line, column, e1, e2);
-		//TODO check if correct
 	}
 
 	@Override
 	public E createOr(int line, int column, E e1, E e2) {
 		return new Disjunction(line, column, e1, e2);
-		//TODO check if correct
 	}
 
 	@Override
 	public E createNot(int line, int column, E e) {
 		return new Negation(line, column, e);
-		//TODO check if correct
 	}
 
 	@Override

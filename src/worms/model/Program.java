@@ -20,10 +20,27 @@ public class Program {
 	}
 	
 	
+	public boolean hasAsWorm(Worm worm){
+		return getWorm() == worm;
+	}
+	
+	public boolean canHaveAsWorm(Worm worm){
+		return worm != null;
+	}
 	
 	@Basic
 	public Worm getWorm(){
 		return this.worm;
+	}
+	
+	protected void setWorm(Worm worm){
+		if(! canHaveAsWorm(worm))
+			throw new IllegalArgumentException();
+		if(worm.getProgram() != null)
+			throw new IllegalArgumentException();
+		this.worm = worm;
+		worm.setProgram(this);
+		//TODO opnieuw parsen?
 	}
 	
 	private Worm worm = null;
