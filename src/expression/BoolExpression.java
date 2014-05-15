@@ -1,6 +1,7 @@
 package expression;
 
 import be.kuleuven.cs.som.annotate.Basic;
+import type.Boolean;
 
 public abstract class BoolExpression extends E{
 
@@ -10,13 +11,13 @@ public abstract class BoolExpression extends E{
 
 	
 	protected void setValue(boolean value){
-		this.value = value;
+		this.value.setBoolean(value);
 	}
 	
 	@Basic
-	public boolean getValue(){
+	public Boolean getValue(){
 		return this.value;
 	}
 	
-	private boolean value = false;
+	private Boolean value = new Boolean();
 }

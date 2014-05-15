@@ -23,7 +23,7 @@ public class Turn extends Action{
 	
 	@Override
 	protected void executeAction(Worm worm) {
-		getActionHandler().turn(worm, ((DoubleExpression) getAngle()).getValue());
+		getActionHandler().turn(worm, ((DoubleExpression) getAngle()).getValue().getDouble());
 	}
 	
 }

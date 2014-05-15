@@ -242,7 +242,7 @@ public class WorldTest {
 	@Test
 	public void addNewWorm_legalCase(){
 		for(int i = 0;i<10;i++){
-			testWorld1.addNewWorm();
+			testWorld1.addNewWorm(null);
 		}
 		for(Worm worm: testWorld1.getWorms()){
 			assertTrue(testWorld1.isAdjacent(worm.getX(),

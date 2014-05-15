@@ -1,5 +1,6 @@
 package expression.entityExpression;
 
+import type.Entity;
 import worms.model.Worm;
 import expression.EntityExpression;
 
@@ -9,4 +10,5 @@ public class Self extends EntityExpression{
 		super(line, column);
 		setEntity(worm);
 	}
+	//TODO change this.
 }

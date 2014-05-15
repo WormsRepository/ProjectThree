@@ -1,14 +1,14 @@
 package type;
 
-public class Boolean extends T {
+public class Boolean extends T{
 	
-	public boolean getX(){
-		return this.x;
+	public boolean getBoolean(){
+		return this.value;
 	}
 	
-	public void setX(boolean x){
-		this.x = x;
+	public void setBoolean(boolean value){
+		this.value = value;
 	}
 	
-	private boolean x = false;
+	private boolean value = false;
 }

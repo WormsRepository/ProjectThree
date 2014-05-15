@@ -7,6 +7,6 @@ public class SquareRoot extends DoubleExpression{
 
 	public SquareRoot(int line, int column, E e) {
 		super(line, column);
-		setValue(Math.sqrt(((DoubleExpression) e).getValue()));
+		setValue(Math.sqrt(((DoubleExpression) e).getValue().getDouble()));
 	}
 }

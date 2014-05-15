@@ -11,8 +11,8 @@ public abstract class EntityExpression extends E{
 
 	//TODO implementing entity
 	
-	@Basic
-	public Entity getEntity(){
+	@Basic @Override
+	public Entity getValue(){
 		return this.entity;
 	}
 	

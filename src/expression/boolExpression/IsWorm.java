@@ -24,7 +24,7 @@ public class IsWorm extends BoolExpression{
 	
 	
 	private boolean isWorm(){
-		if(((EntityExpression) getE()).getEntity() instanceof Worm)
+		if(((EntityExpression) getE()).getValue() instanceof Worm)
 			return true;
 		return false;
 	}

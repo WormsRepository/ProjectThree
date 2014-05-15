@@ -1,8 +1,12 @@
 package statement;
 
+import java.util.Map;
+
 import be.kuleuven.cs.som.annotate.*;
 import expression.E;
 import type.Entity;
+import type.T;
+import worms.model.Worm;
 
 public class Assignment extends S{
 	
@@ -29,12 +33,12 @@ public class Assignment extends S{
 	}
 	
 	private final E rhs;
-	
+
 	
 
 	@Override
 	public void execute(Entity entity) {
-		// TODO Auto-generated method stub
-		
+		Map<String, T> globals = ((Worm) entity).getProgram().getGlobals();
+		globals.put(getVariableName(), getRhs().getValue());
 	}
 }

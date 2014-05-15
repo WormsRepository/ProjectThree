@@ -5,6 +5,7 @@ import type.Boolean;
 import type.Entity;
 
 import java.util.List;
+import java.util.Map;
 
 import expression.*;
 import expression.boolExpression.*;
@@ -25,7 +26,6 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	}
 	
-	
 
 	@Basic
 	public IActionHandler getHandler(){
@@ -33,6 +33,7 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 	}
 	
 	private final IActionHandler handler;
+	
 	
 	@Basic
 	public void setWorm(Worm worm){
@@ -44,8 +45,9 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 		return this.worm;
 	}
 	
-	private Worm worm;
-
+	private Worm worm = new Worm(0,0,0,0.5,"Laurens");
+	//TODO veranderen;
+	
 
 	@Override
 	public E createDoubleLiteral(int line, int column, double d) {
@@ -145,9 +147,11 @@ public class ImplementedPF implements ProgramFactory<E, S, T>{
 
 	@Override
 	public E createVariableAccess(int line, int column, String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return new VariableAccess(line, column, name, getWorm());
 	}
+	
+	private Map<String, T> globals;
+	
 
 	@Override
 	public E createLessThan(int line, int column, E e1, E e2) {

@@ -1,15 +1,27 @@
 package type;
 
-public class Double extends T{
+import be.kuleuven.cs.som.annotate.Basic;
+
+public class Double extends T implements Comparable<Double>{
 	
-	public double getX(){
-		return this.x;
+	@Basic
+	public double getDouble(){
+		return this.value;
 	}
 	
-	public void setX(double x){
-		this.x = x;
+	public void setDouble(double value){
+		this.value = value;
 	}
 	
-	private double x = 0;
+	private double value = 0;
+
+	@Override
+	public int compareTo(Double o) {
+		if(this.getDouble() < o.getDouble())
+			return -1;
+		if(this.getDouble() > o.getDouble())
+			return 1;
+		return 0;
+	}
 
 }

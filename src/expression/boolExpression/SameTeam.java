@@ -34,8 +34,8 @@ public class SameTeam extends BoolExpression{
 	
 	private boolean sameTeam(){
 		if(getE() instanceof EntityExpression){
-			if(((EntityExpression) getE()).getEntity() instanceof Worm && getWorm() != null){
-				Worm x = (Worm) ((EntityExpression) getE()).getEntity();
+			if(getE().getValue() instanceof Worm && getWorm() != null){
+				Worm x = (Worm) getE().getValue();
 				return x.getTeam() == getWorm().getTeam();
 			}
 		}

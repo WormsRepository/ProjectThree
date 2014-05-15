@@ -1,5 +1,6 @@
 package expression;
 
+import type.T;
 import be.kuleuven.cs.som.annotate.Basic;
 import be.kuleuven.cs.som.annotate.Raw;
 
@@ -28,4 +29,6 @@ public abstract class E {
 	}
 	
 	private final int column;
+	
+	public abstract T getValue();
 }

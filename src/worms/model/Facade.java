@@ -1,9 +1,9 @@
 package worms.model;
 
-import java.io.File;
+
 import java.util.Collection;
 import java.util.Random;
-import java.util.Scanner;
+
 
 import expression.E;
 import statement.S;

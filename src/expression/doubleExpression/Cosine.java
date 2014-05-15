@@ -7,6 +7,6 @@ public class Cosine extends DoubleExpression{
 
 	public Cosine(int line, int column, E e) {
 		super(line, column);
-		setValue(Math.cos(((DoubleExpression) e).getValue()));
+		setValue(Math.cos(((DoubleExpression) e).getValue().getDouble()));
 	}
 }

@@ -24,7 +24,7 @@ public class IsFood extends BoolExpression{
 	
 	
 	private boolean isFood(){
-		if(((EntityExpression) getE()).getEntity() instanceof Food)
+		if(((EntityExpression) getE()).getValue() instanceof Food)
 			return true;
 		return false;
 	}

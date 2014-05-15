@@ -1,6 +1,7 @@
 package expression;
 
 import be.kuleuven.cs.som.annotate.Basic;
+import type.Double;
 
 public abstract class DoubleExpression extends E{
 
@@ -9,13 +10,13 @@ public abstract class DoubleExpression extends E{
 	}
 	
 	protected void setValue(double value){
-		this.value = value;
+		this.value.setDouble(value);
 	}
 	
 	@Basic
-	public double getValue(){
+	public Double getValue(){
 		return this.value;
 	}
 	
-	private double value = 0;
+	private Double value = new Double();
 }
